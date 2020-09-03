@@ -1,12 +1,6 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {
-  IoIosHome,
-  IoIosSearch,
-  IoIosChatbubbles,
-  IoIosPeople,
-} from "react-icons/io";
 
 const Navigation = () => {
   return (
@@ -14,7 +8,10 @@ const Navigation = () => {
       <Navbar.Collapse>
         <Nav className="m-auto">
           <Nav.Link to="/" as={Link}>
-            <IoIosHome size={24} />
+            <Navbar.Text>Home</Navbar.Text>
+          </Nav.Link>
+          <Nav.Link to="/categories" as={Link}>
+            <Navbar.Text>Discover</Navbar.Text>
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

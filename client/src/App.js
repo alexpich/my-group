@@ -5,16 +5,18 @@ import "./App.css";
 
 // Pages
 import Home from "./pages/home";
+import Categories from "./pages/categories";
 
 // Components
 import Navigation from "./components/Navigation";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Router>
         <Navigation />
-        <Switch>
+        <Switch location={props.location}>
+          <Route exact path="/categories" component={Categories} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>
