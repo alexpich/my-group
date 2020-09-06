@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const Group = require("../../models/Group");
+const User = require("../../models/User");
 
 router.get("/", async (req, res) => {
-  const groups = await Group.query();
-  res.json(groups);
+  const users = await User.query();
+  res.json(users);
 });
 
 module.exports = router;
