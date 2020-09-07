@@ -11,8 +11,8 @@ const CategoryList = (props) => {
       <li key={cat.id}>
         <Link
           catname={cat.category_name}
-          path={`/category/${cat.id}`}
-          to={`/category/${cat.id}`}
+          path={`/categories/${cat.id}`}
+          to={`/categories/${cat.id}`}
         >
           {cat.category_name}
         </Link>

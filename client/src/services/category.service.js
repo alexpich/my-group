@@ -6,6 +6,10 @@ class CategoryService {
   getAll() {
     return axios.get(API_URL);
   }
+
+  getOne(id) {
+    return axios.get(API_URL + id);
+  }
 }
 
 export default new CategoryService();

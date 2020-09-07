@@ -6,6 +6,7 @@ import "./App.css";
 // Pages
 import Home from "./pages/home";
 import Categories from "./pages/categories";
+import Category from "./pages/category";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -17,6 +18,7 @@ function App(props) {
         <Navigation />
         <Switch location={props.location}>
           <Route exact path="/categories" component={Categories} />
+          <Route path="/categories/:id" component={Category} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>
