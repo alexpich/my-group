@@ -22,4 +22,19 @@ router.get("/:id", async (req, res) => {
   res.json(groups);
 });
 
+// POST one new group
+router.post("/create", async (req, res, next) => {
+  const { group_name, category_id, user_id } = req.body;
+  try {
+    const group = await Group.query().insert({
+      group_name,
+      category_id,
+      user_id,
+    });
+    res.json(group);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

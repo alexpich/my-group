@@ -25,7 +25,7 @@ const CategoryList = (props) => {
         setCategories(res.data);
       })
       .then((data) => {})
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   }, []);
 
   return (
