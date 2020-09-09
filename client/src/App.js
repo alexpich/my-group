@@ -7,6 +7,7 @@ import "./App.css";
 import Home from "./pages/home";
 import Categories from "./pages/categories";
 import Category from "./pages/category";
+import CreateGroup from "./pages/create-group";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -18,6 +19,7 @@ function App(props) {
         <Navigation />
         <Switch location={props.location}>
           <Route exact path="/categories" component={Categories} />
+          <Route exact path="/create-group" component={CreateGroup} />
           <Route path="/categories/:id" component={Category} />
           <Route path="/" component={Home} />
         </Switch>

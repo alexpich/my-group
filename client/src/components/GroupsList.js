@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import CategoryService from "../services/category.service";
 import GroupService from "../services/group.service";
 
@@ -22,26 +23,22 @@ const GroupsList = (props) => {
         .then((res) => {
           setCategoryName(res.data.category_name);
         })
-        .catch((err) => console.log(err));
-    }
-  }, [categoryId]);
+        .catch((error) => console.log(error));
 
-  useEffect(() => {
-    if (categoryId != null) {
       GroupService.getAllByCategory(categoryId)
         .then((res) => {
           setGroupList(res.data);
         })
-        .catch((err) => console.log(err));
+        .catch((error) => console.log(error));
     }
   }, [categoryId]);
 
   return (
     <>
       <p>{categoryName}</p>
-      {/* <button>
-        <Link to={"/category/group/create"}>Create New Group</Link>
-      </button> */}
+      <Link to={"/create-group"}>
+        <Button variant="primary">Create New Group</Button>
+      </Link>
       <p>{categoryId != null ? "The category ID is: " + categoryId : ""}</p>
       <p>{groupList.length > 0 ? listItems : ""}</p>
     </>
