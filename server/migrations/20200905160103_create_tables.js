@@ -13,11 +13,13 @@ exports.up = function (knex) {
     .createTable("categories", (table) => {
       table.increments("id");
       table.string("category_name", 45).notNullable();
+      table.string("image_url");
       table.timestamps(false, true);
     })
     .createTable("groups", (table) => {
       table.increments("id");
       table.string("group_name", 45).notNullable();
+      table.string("image_url");
       table.integer("category_id").unsigned().notNullable();
       table.integer("user_id").unsigned().notNullable(); // group owner
       table.timestamps(false, true);

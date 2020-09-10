@@ -8,6 +8,7 @@ import Home from "./pages/home";
 import Categories from "./pages/categories";
 import Category from "./pages/category";
 import CreateGroup from "./pages/create-group";
+import Groups from "./pages/groups";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -21,6 +22,7 @@ function App(props) {
           <Route exact path="/categories" component={Categories} />
           <Route exact path="/create-group" component={CreateGroup} />
           <Route path="/categories/:id" component={Category} />
+          <Route path="/groups/:id" component={Groups} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>
