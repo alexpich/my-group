@@ -11,9 +11,9 @@ const GroupsList = (props) => {
 
   const listItems = groupList.map((group) => (
     <li key={group.id}>
-      {/* <Link path={`/category/${cat.id}`} to={`/category/${cat.id}`}> */}
-      {group.group_name}
-      {/* </Link> */}
+      <Link path={`/groups/${group.id}`} to={`/groups/${group.id}`}>
+        {group.group_name}
+      </Link>
     </li>
   ));
 
