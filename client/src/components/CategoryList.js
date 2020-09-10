@@ -11,14 +11,17 @@ const Image = styled.img`
   margin: 1rem;
 `;
 
-const Block = styled.span`
+const Block = styled.div`
   position: relative;
   text-align: center;
-  color: white;
+  display: inline-block;
 `;
 
 const Span = styled.span`
   color: white;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 0.2rem 0.4rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -38,8 +41,8 @@ const CategoryList = (props) => {
           path={`/categories/${cat.id}`}
           to={`/categories/${cat.id}`}
         >
+          <Image src={cat.image_url} alt={cat.category_name} />
           <Span>{cat.category_name}</Span>
-          <Image src={cat.image_url} />
         </Link>
       </Block>
     ));
