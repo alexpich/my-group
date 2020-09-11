@@ -15,9 +15,10 @@ class GroupService {
     return axios.get(API_URL + id);
   }
 
-  createOne(group_name, category_id, user_id) {
+  createOne(group_name, image_url, category_id, user_id) {
     return axios.post(API_URL + "create/", {
       group_name,
+      image_url,
       category_id,
       user_id,
     });
