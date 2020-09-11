@@ -16,6 +16,7 @@ const NewGroupForm = () => {
   const [groupName, setGroupName] = useState(initialFormState.groupName);
   // const [location, setLocation] = useState("");
   const [userId, setUserId] = useState(initialFormState.userId);
+  const [imageUrl, setImageUrl] = useState("");
 
   const getCategories = async () => {
     const categoryList = await CategoryService.getAll();
