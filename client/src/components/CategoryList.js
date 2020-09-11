@@ -34,9 +34,8 @@ const CategoryList = (props) => {
   const listItems = categories
     .sort((a, b) => (a.category_name > b.category_name ? 1 : -1))
     .map((cat) => (
-      <Block>
+      <Block key={cat.id}>
         <Link
-          key={cat.id}
           catname={cat.category_name}
           path={`/categories/${cat.id}`}
           to={`/categories/${cat.id}`}

@@ -24,10 +24,11 @@ router.get("/:id", async (req, res) => {
 
 // POST one new group
 router.post("/create", async (req, res, next) => {
-  const { group_name, category_id, user_id } = req.body;
+  const { group_name, image_url, category_id, user_id } = req.body;
   try {
     const group = await Group.query().insert({
       group_name,
+      image_url,
       category_id,
       user_id,
     });
