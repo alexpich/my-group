@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const cloudinary = require("cloudinary").v2;
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
@@ -18,8 +17,6 @@ const apiRoutes = require("./routes/api");
 app.use(cors(corsOptions));
 
 // Accept JSON data
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -32,17 +29,6 @@ Model.knex(knex);
 
 // Include the routes to express
 app.use("/api", apiRoutes);
-
-/**
- * Cloudinary Configuration
- */
-const cloudinaryDetails = require("./config/cloudinary_config");
-
-cloudinary.config({
-  cloud_name: cloudinaryDetails.cloud_name,
-  api_key: cloudinaryDetails.api_key,
-  api_secret: cloudinaryDetails.api_secret,
-});
 
 /**
  * Error Handlers
