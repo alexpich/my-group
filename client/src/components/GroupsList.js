@@ -40,6 +40,7 @@ const GroupsList = (props) => {
     // </li>
     <Block key={group.id}>
       <Link path={`/groups/${group.id}`} to={`/groups/${group.id}`}>
+        <Image src={group.image_url} alt={group.group_name} />
         <Span>{group.group_name}</Span>
       </Link>
     </Block>
