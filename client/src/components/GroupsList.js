@@ -36,8 +36,6 @@ const GroupsList = (props) => {
   const [groupList, setGroupList] = useState([]);
 
   const listItems = groupList.map((group) => (
-    // <li key={group.id}>
-    // </li>
     <Block key={group.id}>
       <Link path={`/groups/${group.id}`} to={`/groups/${group.id}`}>
         <Image src={group.image_url} alt={group.group_name} />
@@ -65,19 +63,15 @@ const GroupsList = (props) => {
   }, [categoryId]);
 
   return (
-    <Container fluid>
+    <Container fluid className="mt-2">
       <Row>
         <Col>
           <h1>{categoryName}</h1>
           <Link to={"/create-group"}>
             <Button variant="primary">Create New Group</Button>
           </Link>
-          <p>
-            {loading ? "Loading..." : ""}
-            {!loading && groupList.length > 0
-              ? listItems
-              : "There are currently no groups in this category..."}
-          </p>
+          <p>{loading ? "Loading..." : ""}</p>
+          {!loading && groupList.length > 0 ? listItems : ""}
         </Col>
       </Row>
     </Container>

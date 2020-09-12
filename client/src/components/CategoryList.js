@@ -57,8 +57,8 @@ const CategoryList = (props) => {
 
   return (
     <>
-      <h1>Choose A Category</h1>
-      <Container fluid>
+      <Container fluid className="mt-2">
+        <h1>Choose A Category</h1>
         <Row>
           <Col>{categories.length > 0 ? listItems : ""}</Col>
         </Row>
