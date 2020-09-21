@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const port = process.env.PORT || 5000;
+const morgan = require("morgan");
 
 let corsOptions = {
   origin: "http://localhost:3000",
@@ -16,9 +16,10 @@ const apiRoutes = require("./routes/api");
  */
 app.use(cors(corsOptions));
 
-// Accept JSON data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// App Setup - Get express working
+app.use(morgan("combined"));
+app.use(cors(corsOptions));
+app.use(bodyParser.json({ type: "*/*" }));
 
 // Knex
 const Knex = require("knex");
@@ -38,7 +39,8 @@ app.use((err, req, res, next) => {
   errorHandler(err, res);
 });
 
-// app.listen(port, () => console.log(`Server listening on port ${port}`));
+// Server Setup
+const port = process.env.PORT || 5000;
 const server = app.listen(port, (error) => {
   if (error) {
     console.log("Error running Express");
