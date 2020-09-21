@@ -34,7 +34,7 @@ router.post("/signup", async (req, res, next) => {
       email: email,
       password: password,
     });
-    res.json(savedUser);
+    res.json({ success: true });
   } catch (err) {
     next(err);
   }
