@@ -5,7 +5,7 @@ exports.up = function (knex) {
       table.string("first_name", 45).notNullable();
       table.string("last_name", 45).notNullable();
       table.string("email", 45).notNullable();
-      table.string("password", 45).notNullable();
+      table.string("password", 100).notNullable();
       table.integer("age");
       table.string("image");
       table.timestamps(false, true);

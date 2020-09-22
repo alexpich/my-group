@@ -1,6 +1,30 @@
 const express = require("express");
+const bcrypt = require("bcrypt-nodejs");
 const router = express.Router();
 const User = require("../../models/User");
+const jwt = require("jwt-simple");
+const config = require("../../config/config");
+
+// Passport Setup
+const passportService = require("../../services/passport");
+const passport = require("passport");
+const requireAuth = passport.authenticate("jwt", { session: false });
+const requireSignin = passport.authenticate("local", { session: false });
+
+function tokenForUser(user) {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+}
+
+// Test route
+router.get("/", requireAuth, function (req, res) {
+  res.send({ hi: "there" });
+});
+
+router.post("/signin", requireSignin, function (req, res, next) {
+  // User has already had their email and pw auth'd, now we just need to give them a token
+  res.send({ token: tokenForUser(req.user) });
+});
 
 router.post("/signup", async (req, res, next) => {
   const first_name = req.body.first_name;
@@ -28,13 +52,15 @@ router.post("/signup", async (req, res, next) => {
 
   // If user with email does NOT exist, create and save user record
   try {
+    const salt = bcrypt.genSaltSync(10);
+
     const savedUser = await User.query().insert({
       first_name: first_name,
       last_name: last_name,
       email: email,
-      password: password,
+      password: bcrypt.hashSync(password, salt),
     });
-    res.json({ success: true });
+    res.json({ token: tokenForUser(savedUser) });
   } catch (err) {
     next(err);
   }
