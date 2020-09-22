@@ -2,6 +2,13 @@ const express = require("express");
 const bcrypt = require("bcrypt-nodejs");
 const router = express.Router();
 const User = require("../../models/User");
+const jwt = require("jwt-simple");
+const config = require("../../config/config");
+
+function tokenForUser(user) {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+}
 
 router.post("/signup", async (req, res, next) => {
   const first_name = req.body.first_name;
@@ -37,7 +44,7 @@ router.post("/signup", async (req, res, next) => {
       email: email,
       password: bcrypt.hashSync(password, salt),
     });
-    res.json({ success: true });
+    res.json({ token: tokenForUser(savedUser) });
   } catch (err) {
     next(err);
   }

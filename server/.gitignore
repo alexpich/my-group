@@ -25,3 +25,4 @@ yarn-error.log*
 # config
 db_config.js
 cloudinary_config.js
+config.js
