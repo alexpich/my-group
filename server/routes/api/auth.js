@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt-nodejs");
 const router = express.Router();
 const User = require("../../models/User");
 
@@ -28,11 +29,13 @@ router.post("/signup", async (req, res, next) => {
 
   // If user with email does NOT exist, create and save user record
   try {
+    const salt = bcrypt.genSaltSync(10);
+
     const savedUser = await User.query().insert({
       first_name: first_name,
       last_name: last_name,
       email: email,
-      password: password,
+      password: bcrypt.hashSync(password, salt),
     });
     res.json({ success: true });
   } catch (err) {
