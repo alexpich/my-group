@@ -5,18 +5,25 @@ const User = require("../../models/User");
 const jwt = require("jwt-simple");
 const config = require("../../config/config");
 
+// Passport Setup
 const passportService = require("../../services/passport");
 const passport = require("passport");
-
 const requireAuth = passport.authenticate("jwt", { session: false });
+const requireSignin = passport.authenticate("local", { session: false });
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
+// Test route
 router.get("/", requireAuth, function (req, res) {
   res.send({ hi: "there" });
+});
+
+router.post("/signin", requireSignin, function (req, res, next) {
+  // User has already had their email and pw auth'd, now we just need to give them a token
+  res.send({ token: tokenForUser(req.user) });
 });
 
 router.post("/signup", async (req, res, next) => {
