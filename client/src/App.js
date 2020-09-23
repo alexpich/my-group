@@ -15,6 +15,7 @@ import Category from "./pages/category";
 import CreateGroup from "./pages/create-group";
 import Groups from "./pages/groups";
 import Signup from "./pages/signup";
+import Signin from "./pages/signin";
 import Signout from "./pages/signout";
 import Feature from "./pages/feature";
 
@@ -37,6 +38,7 @@ function App(props) {
           <Route exact path="/categories" component={Categories} />
           <Route exact path="/create-group" component={CreateGroup} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/signin" component={Signin} />
           <Route exact path="/signout" component={Signout} />
           <Route path="/categories/:id" component={Category} />
           <Route path="/groups/:id" component={Groups} />
