@@ -20,7 +20,11 @@ import Feature from "./pages/feature";
 // Components
 import Navigation from "./components/Navigation";
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const store = createStore(
+  reducers,
+  { auth: { authenticated: localStorage.getItem("token") } },
+  applyMiddleware(reduxThunk)
+);
 
 function App(props) {
   return (
