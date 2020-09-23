@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
 
+import reducers from "../src/reducers";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import reducers from "../src/reducers";
 
 // Pages
 import Home from "./pages/home";
@@ -18,9 +19,11 @@ import Signup from "./pages/signup";
 // Components
 import Navigation from "./components/Navigation";
 
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
 function App(props) {
   return (
-    <Provider store={createStore(reducers, {})}>
+    <Provider store={store}>
       <Router>
         <Navigation />
         <Switch location={props.location}>
