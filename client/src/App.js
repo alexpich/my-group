@@ -15,6 +15,7 @@ import Category from "./pages/category";
 import CreateGroup from "./pages/create-group";
 import Groups from "./pages/groups";
 import Signup from "./pages/signup";
+import Feature from "./pages/feature";
 
 // Components
 import Navigation from "./components/Navigation";
@@ -27,6 +28,7 @@ function App(props) {
       <Router>
         <Navigation />
         <Switch location={props.location}>
+          <Route exact path="/feature" component={Feature} />
           <Route exact path="/categories" component={Categories} />
           <Route exact path="/create-group" component={CreateGroup} />
           <Route exact path="/signup" component={Signup} />

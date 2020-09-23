@@ -13,6 +13,9 @@ const Navigation = () => {
           <Nav.Link to="/categories" as={Link}>
             <Navbar.Text>Discover</Navbar.Text>
           </Nav.Link>
+          <Nav.Link to="/feature" as={Link}>
+            <Navbar.Text>Feature</Navbar.Text>
+          </Nav.Link>
           {/* TODO: conditionally show signin/signout based on login */}
           <Nav.Link to="/signout" as={Link}>
             <Navbar.Text>Sign Out</Navbar.Text>

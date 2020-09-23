@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import * as actions from "../actions";
 import { Form, Button } from "react-bootstrap";
 
 class SignupForm extends Component {
   onSubmit = (formProps) => {
     this.props.signup(formProps, () => {
-      this.props.history.push("/");
+      this.props.history.push("/feature");
     });
   };
 
@@ -53,7 +53,7 @@ class SignupForm extends Component {
             autoComplete="none"
           />
         </Form.Group>
-        {/* <div>{this.props.errorMessage}</div> */}
+        <div>{this.props.errorMessage}</div>
         <Button type="submit">Sign Up</Button>
       </Form>
     );
