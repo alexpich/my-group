@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import CategoryService from "../services/category.service";
-import GroupService from "../services/group.service";
+import CategoryService from "../../services/category.service";
+import GroupService from "../../services/group.service";
 
 const Image = styled.img`
   width: 160px;

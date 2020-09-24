@@ -1,5 +1,5 @@
 import React from "react";
-import NewGroupForm from "../components/NewGroupForm";
+import NewGroupForm from "./NewGroupForm";
 import { Container, Row, Col } from "react-bootstrap";
 
 const Category = () => {

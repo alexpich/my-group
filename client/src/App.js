@@ -9,15 +9,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 // Pages
-import Home from "./pages/home";
-import Categories from "./pages/categories";
-import Category from "./pages/category";
-import CreateGroup from "./pages/create-group";
-import Groups from "./pages/groups";
-import Signup from "./pages/signup";
-import Signin from "./pages/signin";
-import Signout from "./pages/signout";
-import Feature from "./pages/feature";
+import Home from "./components/Home";
+import Categories from "./components/Category/Categories";
+import Category from "./components/Category/Category";
+import CreateGroup from "./components/Group/CreateGroup";
+import Groups from "./components/Group/Groups";
+import Signup from "./components/Auth/Signup";
+import Signin from "./components/Auth/Signin";
+import Signout from "./components/Auth/Signout";
+import Feature from "./components/Feature";
 
 // Components
 import Navigation from "./components/Navigation";

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import styled from "styled-components";
 import axios from "axios";
-import CategoryService from "../services/category.service";
-import GroupService from "../services/group.service";
+import CategoryService from "../../services/category.service";
+import GroupService from "../../services/group.service";
 
 const ImageInput = styled.div`
   background: #ededed;

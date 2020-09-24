@@ -1,5 +1,5 @@
 import React from "react";
-import GroupsList from "../components/GroupsList";
+import GroupsList from "../Group/GroupsList";
 
 const Category = () => {
   return <GroupsList />;
