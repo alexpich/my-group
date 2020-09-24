@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryList from "../components/CategoryList";
+import CategoryList from "./CategoryList";
 
 const Categories = () => {
   return <CategoryList />;

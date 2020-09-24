@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import GroupService from "../services/group.service";
+import GroupService from "../../services/group.service";
 
 const GroupDetails = (props) => {
   const { id } = useParams();

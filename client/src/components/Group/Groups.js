@@ -1,5 +1,5 @@
 import React from "react";
-import GroupDetails from "../components/GroupDetails";
+import GroupDetails from "./GroupDetails";
 
 const Groups = () => {
   return <GroupDetails />;
